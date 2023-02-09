@@ -13,6 +13,8 @@ class RX
      *
      * $indexesToReturn governs what is returned and how. Examples:
      *
+     * pregReturn('~(a)(?<namedindex>b)~is','ab', '') => [0 => "ab", 1 => "a", "namedindex" => "b", 2 => "b"]
+     *
      * pregReturn('~(a)(?<namedindex>b)~is','ab', 0) => ab
      *
      * pregReturn('~(a)(?<namedindex>b)~is','ab', 1) => a
