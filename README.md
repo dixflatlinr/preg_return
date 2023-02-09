@@ -1,5 +1,5 @@
 # preg_return
-~ is a convenience PHP library which provides an alternate way to use preg_match. It works exactly like **preg_match**, but returns the matching elements or a subset of them.
+~ is a convenience PHP library which provides an alternate way to use preg_match. Works like preg_match, but returns the matching elements or a subset.
 
 # Installation
 The recommended way to install **preg_return** is through  [Composer](https://getcomposer.org/).
@@ -66,7 +66,7 @@ preg_return('~(a)(?<namedindex>b)~is','ab', 1); //=> 'a'
 ```
 
 ```php
-//=== 'namedindex', gives back text that matched the first named group
+//=== 'namedindex', gives back text that matched the given named group
 preg_return('~(a)(?<namedindex>b)~is','ab', 'namedindex'); //=> 'b'
 ```
 
