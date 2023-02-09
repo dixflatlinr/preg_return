@@ -1,5 +1,5 @@
 # preg_return
-~ is a convenience PHP library which provides an alternate way to use preg_match. It works exactly like **preg_match**, but returns the matching elements or a subset of it.
+~ is a convenience PHP library which provides an alternate way to use preg_match. It works exactly like **preg_match**, but returns the matching elements or a subset of them.
 
 # Installation
 The recommended way to install **preg_return** is through  [Composer](https://getcomposer.org/).
@@ -36,7 +36,9 @@ require "vendor/autoload.php";
 //$indexesToReturn === null, gives back the preg_match return value
 preg_return('~(a)(?<namedindex>b)~is','ab'); //=> 1;
 RX::pregReturn('~(a)(?<namedindex>b)~is','ab'); //=> 1;
+```
 
+```php
 //Using an empty array or string returns the whole results array
 preg_return('~(a)(?<namedindex>b)~is','ab', []);
 /* =>
@@ -51,22 +53,30 @@ array(4) {
   string(1) "b"
 }
 */
+```
 
-
-
+```php
 //=== 0, gives back the text that matched the full pattern
 preg_return('~(a)(?<namedindex>b)~is','ab', 0); //=> 'ab'
+```
 
+```php
 //=== 1, gives back text that matched the first captured parenthesized subpattern
 preg_return('~(a)(?<namedindex>b)~is','ab', 1); //=> 'a'
+```
 
-//=== 'namedindex', gives back text that matched the first group
+```php
+//=== 'namedindex', gives back text that matched the first named group
 preg_return('~(a)(?<namedindex>b)~is','ab', 'namedindex'); //=> 'b'
+```
 
+```php
 //Using an array with indexes or named groups returns those keyed accordingly
 preg_return('~(a)(?<namedindex>b)~is','ab', [1,'namedindex']);//=> [1 => 'a', 'namedindex' => b]
+```
 
-//Using preg_return_replace modifies the provided subject variable and returns the same as above
+```php
+//Using preg_return_replace modifies the provided subject variable and returns the matched element before replacement
 $subject = 'first_second_third';
 $r = preg_return_replace('~^(first)_(second)_(?<third>third)$~is', '\1_\2_XXX', $subject, 3);
 /*
