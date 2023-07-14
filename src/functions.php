@@ -29,7 +29,7 @@ if (!function_exists('preg_return_replace'))
     /**
      * Desc: {@see RX::pregReturnReplace}
      */
-    function preg_return_replace(string $pattern, string $replacement, string &$subject, $indexesToReturn = null, int $flags = 0, int $offset = 0)
+    function preg_return_replace(string|array $pattern, string|array $replacement, string|array &$subject, $indexesToReturn = null, int $flags = 0, int $offset = 0)
     {
         return RX::pregReturnReplace($pattern, $replacement, $subject, $indexesToReturn, $flags, $offset);
     }

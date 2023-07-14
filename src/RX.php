@@ -53,7 +53,7 @@ class RX
      * Rest is identical to: {@see pregReturn}
      *
      */
-    static function pregReturnReplace(string $pattern, string $replacement, string &$subject, $indexesToReturn = null, int $flags = 0, int $offset = 0)
+    static function pregReturnReplace(string|array $pattern, string|array $replacement, string|array &$subject, $indexesToReturn = null, int $flags = 0, int $offset = 0)
     {
         $ret = self::_preg(self::PREG_MATCH, $pattern, $subject, $indexesToReturn, $flags, $offset);
         $subject = preg_replace($pattern, $replacement, $subject);
